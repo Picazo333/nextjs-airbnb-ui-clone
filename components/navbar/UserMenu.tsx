@@ -6,26 +6,34 @@ export const UserMenu = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative shrink-0">
+    <div
+      className="relative shrink-0"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          setOpen(false);
+        }
+      }}
+    >
       <button
         type="button"
         aria-label="Account menu"
         aria-expanded={open}
+        aria-controls="account-menu"
         onClick={() => setOpen((value) => !value)}
-        className="flex h-11 items-center gap-2 rounded-full border border-neutral-200 px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        className="flex min-h-11 items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2 text-[var(--color-ink)]"
       >
-        <span aria-hidden="true" className="px-1 text-sm">
-          ☰
-        </span>
-        <span
-          aria-hidden="true"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-800 text-xs font-medium text-white"
-        >
-          A
-        </span>
+        <svg aria-hidden="true" viewBox="0 0 18 18" className="h-5 w-5">
+          <path fill="currentColor" d="M2 4h14v2H2zm0 4h14v2H2zm0 4h14v2H2z" />
+        </svg>
+        <span aria-hidden="true" className="h-8 w-8 rounded-full bg-[var(--color-ink)]" />
       </button>
       {open ? (
-        <p className="absolute right-0 z-30 mt-2 w-52 rounded-xl border border-neutral-200 bg-white p-3 text-sm text-neutral-700 shadow-lg">
+        <p
+          id="account-menu"
+          role="region"
+          aria-label="Account"
+          className="absolute right-0 z-30 mt-2 w-52 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 text-sm text-[var(--color-ink)] shadow-[var(--shadow-overlay)]"
+        >
           Account preview. Sign-in is not part of this UI clone.
         </p>
       ) : null}

@@ -113,3 +113,7 @@ Room layout, top to bottom, mobile first:
 From 768px, `ListingHeader`, `HostInfo`, and `AmenitiesGrid` stay in the left column and `BookingCard` sticks in a right column. The gallery stays full width above them.
 
 The id used to load the room is the dynamic route param. `useEffect` waits one second, then stores the matching `Room` or nothing.
+
+## SIGNAL retrofit
+
+After the three views matched this spec, a later pass applied the academic SIGNAL profile only where it does not replace the Airbnb layout captured above. Token files, the footer lockup, and the list of omitted rules are in `SIGNAL-ADOPTION.md`. The component names and props in this file are unchanged. Empty search results now include a Clear search action. Unknown URLs render the not-found page.

@@ -24,7 +24,7 @@ export const PhotoPlaceholder = ({
 }: PhotoPlaceholderProps) => {
   return (
     <div className={`flex items-end rounded-xl p-3 ${tones[tone]} ${className}`}>
-      <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-neutral-700">
+      <span className="rounded-full bg-[var(--color-surface)] px-3 py-1 text-xs font-medium text-[var(--color-ink)]">
         {label}
       </span>
     </div>

@@ -15,6 +15,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run lint
+npm run typecheck
+npm test
 npm run build
 ```
 
@@ -44,6 +46,9 @@ Listing cards and the logo use `next/link`. The room page links back to `/catalo
 - Home and Catalog keep the visible card list in state and replace it on each keystroke or sort change.
 - Each page simulates a fetch with `useEffect` and a one-second timeout, and shows a loading status until that finishes.
 - The map is a gray box labeled "Map". A live map and a date picker are outside this version.
+- Page chrome uses the SIGNAL token file for type, focus, and state colors. The Airbnb-like wordmark, pill search, category chips, and photo cards stay in place. See `SIGNAL-ADOPTION.md`.
+- The footer carries the exact 4Geeks × Divinivid lockup as a visual credit, not a partnership claim.
+- Metadata sends `noindex`. This preview has no confirmed public domain.
 - `create-next-app` left Cache Components and Partial Prefetching on. The room route reads `params` inside `<Suspense>` so the static shell can still prerender.
 - `allowedDevOrigins` includes `127.0.0.1`, because Next.js 16 blocks dev resources when the page is opened on that host instead of `localhost`.
 - The scaffold command and the screenshot notes are recorded in `context.md`.

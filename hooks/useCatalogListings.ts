@@ -43,5 +43,13 @@ export const useCatalogListings = () => {
     }
   };
 
-  return { query, cards, loading, sortOrder, onQueryChange, onSortChange };
+  return {
+    query,
+    cards,
+    loading,
+    sortOrder,
+    placeholderCount: listings.length,
+    onQueryChange,
+    onSortChange,
+  };
 };
