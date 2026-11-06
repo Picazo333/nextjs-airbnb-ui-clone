@@ -38,5 +38,13 @@ export const useHomeListings = () => {
     }
   };
 
-  return { query, category, cards, loading, onQueryChange, onCategoryChange };
+  return {
+    query,
+    category,
+    cards,
+    loading,
+    placeholderCount: listings.length,
+    onQueryChange,
+    onCategoryChange,
+  };
 };

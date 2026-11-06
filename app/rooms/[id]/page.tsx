@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import { LoadingState } from "@/components/feedback/LoadingState";
 import { RoomLoader } from "@/components/room/RoomLoader";
+import { RoomLoading } from "@/components/room/RoomLoading";
 
 type RoomPageProps = {
   params: Promise<{ id: string }>;
@@ -8,7 +8,13 @@ type RoomPageProps = {
 
 const RoomPage = ({ params }: RoomPageProps) => {
   return (
-    <Suspense fallback={<LoadingState label="Loading stay" />}>
+    <Suspense
+      fallback={
+        <main id="content" className="mx-auto w-full max-w-[var(--container)] flex-1 px-[var(--gutter)] py-6">
+          <RoomLoading />
+        </main>
+      }
+    >
       <RoomLoader params={params} />
     </Suspense>
   );

@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
+import { MotionPreference } from "@/components/site/MotionPreference";
+import { SkipLink } from "@/components/site/SkipLink";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "airbnb",
-  description: "Mobile-first vacation rental UI clone built with Next.js and React.",
+  title: "Vacation rental UI preview",
+  description: "Mobile-first clone of a vacation-rental home, catalog, and room page.",
+  robots: { index: false, follow: false },
 };
 
-const RootLayout = ({ children }: LayoutProps<"/">) => {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-white font-sans text-foreground">{children}</body>
+    <html lang="en" className="h-full">
+      <body className="flex min-h-full flex-col font-sans">
+        <MotionPreference />
+        <SkipLink />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 };

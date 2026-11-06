@@ -10,15 +10,15 @@ type CategoryChipProps = {
 
 export const CategoryChip = ({ id, label, icon, active, onSelect }: CategoryChipProps) => {
   const stateClass = active
-    ? "border-neutral-900 bg-neutral-900 text-white"
-    : "border-neutral-200 bg-white text-neutral-700";
+    ? "border-[var(--color-ink)] bg-[var(--color-ink)] text-[var(--color-surface)]"
+    : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-ink)]";
 
   return (
     <button
       type="button"
       aria-pressed={active}
       onClick={() => onSelect(id)}
-      className={`flex h-11 shrink-0 items-center gap-2 rounded-full border px-4 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${stateClass}`}
+      className={`flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-4 text-sm font-semibold transition-colors duration-[120ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] ${stateClass}`}
     >
       <span aria-hidden="true">{icon}</span>
       {label}

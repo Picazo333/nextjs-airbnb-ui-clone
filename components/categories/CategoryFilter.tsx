@@ -8,8 +8,8 @@ type CategoryFilterProps = {
 
 export const CategoryFilter = ({ active, onChange }: CategoryFilterProps) => {
   return (
-    <div className="-mx-4 mb-4 overflow-x-auto px-4">
-      <ul aria-label="Categories" className="flex w-max gap-2 pb-1">
+    <div className="-mx-[var(--gutter)] mb-4 overflow-x-auto px-[var(--gutter)] py-2">
+      <ul aria-label="Categories" className="flex w-max gap-2">
         {categories.map((category) => (
           <li key={category.id}>
             <CategoryChip
