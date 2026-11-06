@@ -1,0 +1,34 @@
+import Link from "next/link";
+import { PhotoPlaceholder } from "@/components/media/PhotoPlaceholder";
+import type { Listing } from "@/types/listing";
+
+type ListingCardProps = {
+  listing: Listing;
+};
+
+export const ListingCard = ({ listing }: ListingCardProps) => {
+  return (
+    <Link
+      href={`/rooms/${listing.id}`}
+      className="group block rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+    >
+      <PhotoPlaceholder tone={listing.tone} label={listing.photoLabel} />
+      <div className="mt-3 flex items-start justify-between gap-3">
+        <div>
+          <h2 className="text-sm font-semibold text-neutral-900 group-hover:underline">
+            {listing.title}
+          </h2>
+          <p className="mt-1 text-sm text-neutral-500">{listing.location}</p>
+        </div>
+        <p className="shrink-0 text-sm text-neutral-800">
+          <span aria-hidden="true">★</span>
+          <span className="sr-only">Rated</span> {listing.rating.toFixed(2)}
+        </p>
+      </div>
+      <p className="mt-1 text-sm text-neutral-800">
+        <span className="font-semibold">${listing.pricePerNight}</span>
+        <span className="text-neutral-600"> per night</span>
+      </p>
+    </Link>
+  );
+};
